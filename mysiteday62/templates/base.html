@@ -21,7 +21,12 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'dashboard.css'%}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'fontawesome/css/font-awesome.min.css'%}">
-
+    <link rel="stylesheet" href="{% static 'sweetalert/sweetalert.css'%}">
+    <style>
+        .sweet-alert>h2 {
+            padding-top: 15px;
+        }
+    </style>
     {% block page-css %}
 
     {% endblock %}
@@ -89,6 +94,9 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="{% static 'jquery-3.3.1.js'%}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'sweetalert/sweetalert.min.js'%}"></script>
+<script src="{% static 'setupajax.js'%}"></script>
+
 {% block page-js %}
 
 {% endblock %}

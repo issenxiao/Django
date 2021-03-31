@@ -48,4 +48,7 @@ urlpatterns = [
     # 商品展示
     url(r'^store/', views.store,name='store'),
     url(r'^show/', views.show,name='store'),
+
+    #Sweetalet插件
+    url(r'^sweetalert_demo/', views.show),
 ]

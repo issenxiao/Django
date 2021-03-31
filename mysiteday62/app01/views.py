@@ -66,8 +66,8 @@ class AddPublisher(View):
 
 # 删除出版社的函数
 def delete_publisher(request):
-    print(request.GET)
-    print("=" * 120)
+    # print(request.GET)
+    # print("=" * 120)
     # 删除指定的数据
     # 1. 从GET请求的参数里面拿到将要删除的数据的ID值
     del_id = request.GET.get("id", None)  # 字典取值,娶不到默认为None
@@ -79,7 +79,8 @@ def delete_publisher(request):
         # 删除
         del_obj.delete()
         # 返回删除后的页面,跳转到出版社的列表页,查看删除是否成功
-        return redirect("/publisher_list/")
+        # return redirect("/publisher_list/")
+        return HttpResponse("删除成功！")
     else:
         return HttpResponse("要删除的数据不存在!")
 
@@ -117,7 +118,7 @@ def book_list(request):
     #return render(request, "book_list.html", {"all_book": all_book})
     # 从URL取参数
     page_num = request.GET.get("page")
-    print(page_num, type(page_num))
+    #print(page_num, type(page_num))
     # 总数据是多少
     total_count = models.Book.objects.all().count()
     
@@ -131,12 +132,13 @@ def book_list(request):
 
 # 删除书籍
 def delete_book(request):
-    # 从URL里面获取要删除的书籍的id值
-    delete_id = request.GET.get("id")  # 从URL里面取数据
+    # 从URL里面获取要删除的书籍的id值(注意请求类型)
+    delete_id = request.POST.get("id")  # 从URL里面取数据
     # 去删除数据库中删除指定id的数据
     models.Book.objects.get(id=delete_id).delete()
     # 返回书籍列表页面, 查看是否删除成功
-    return redirect("/book_list/")
+    #return redirect("/book_list/")
+    return HttpResponse("删除成功！")
 
 
 # 添加书籍
@@ -250,7 +252,8 @@ def delete_author(request):
     # 2. 去作者和书的关联表,把对应的关联记录删除了
     models.Author.objects.get(id=delete_id).delete()
     # 返回作者列表页面
-    return redirect("/author_list/")
+    # return redirect("/author_list/")
+    return HttpResponse("删除成功！")
 
 
 # 编辑作者
