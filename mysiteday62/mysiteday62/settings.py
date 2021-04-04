@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app01.apps.App01Config',
+    'dhStore.apps.DhstoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,8 @@ WSGI_APPLICATION = 'mysiteday62.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'day62', 
-        'HOST': '127.0.0.1',
+        'NAME': 'day62',
+        'HOST': 'localhost',
         'PORT': 3306,
         'USER': 'root',
         'PASSWORD': '',

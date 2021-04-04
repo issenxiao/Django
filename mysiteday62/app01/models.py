@@ -32,3 +32,5 @@ class Goods(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=16, null=False, unique=True)
     price = models.CharField(max_length=128,default='￥6')
+
+

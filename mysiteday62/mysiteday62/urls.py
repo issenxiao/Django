@@ -20,8 +20,10 @@ from app01 import views
 urlpatterns = [
     # url(r'^home/', views.publisher_list),
     url(r'^admin/', admin.site.urls),
-    url(r'^publisher_list/', views.publisher_list),
+    url(r'^$', views.index),
 
+    # 出版社相关
+    url(r'^publisher_list/', views.publisher_list),
     url(r'^add_publisher/', views.AddPublisher.as_view()),
     # url(r'^add_publisher/', views.add_publisher),
 
@@ -46,8 +48,8 @@ urlpatterns = [
     url(r'^upload/$', views.upload),
 
     # 商品展示
-    url(r'^store/', views.store,name='store'),
-    url(r'^show/', views.show,name='store'),
+    url(r'^goods_list/', views.store,name='store'),
+    url(r'^goods_show/', views.show,name='store'),
 
     #Sweetalet插件
     url(r'^sweetalert_demo/', views.show),

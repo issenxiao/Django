@@ -4,6 +4,10 @@ from django.urls import reverse
 from utils.mypage import Page
 # Create your views here.
 
+# index页面
+def index(request):
+    return render(request, "index.html")
+
 
 # 展示出版社列表
 def publisher_list(request):
@@ -290,8 +294,8 @@ def edit_author(request):
 
 def test(request):
     print(request.GET)
-    print(request.GET.get("id"))
-    url = reverse("book_list")
+    #print(request.GET.get("id"))
+    #url = reverse("book_list")
     # return HttpResponse("OK")
     # return redirect("test.html")
     return render(request, "test.html")
@@ -327,7 +331,7 @@ def store(request):
     # 去数据库中查询所有的书籍
     all_goods = models.Goods.objects.all()
     # 在HTML页面完成字符串替换(渲染数据)
-    return render(request, "store.html", {"all_goods": all_goods})
+    return render(request, "goods_list.html", {"all_goods": all_goods})
 
 def show(request):
-    return render(request,"show.html")
+    return render(request,"goods_show.html")
